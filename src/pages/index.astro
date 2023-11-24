@@ -1,0 +1,37 @@
+---
+import Main from "../layouts/Main.astro"
+const profilePicture = "https://wallpapers.com/images/hd/cool-profile-picture-87h46gcobjl5e4xu.jpg"
+---
+
+<Main>
+	<div class="profile">
+		<img class="profile__picture" src={profilePicture} alt="Fernando Valerio's Website" width="100px" height="100px" >
+		<div class="profile__details">
+			<h1>Fernando Valerio</h1>
+			<h2>Front End Engineer at Nobee</h2>
+			<p>Hi, I'm Fernando Valerio, a Front End Engineer at Nobee. I'm a passionate learner and a self-taught developer. I love to learn new things and share my knowledge with others.</p>
+		</div>
+	</div>
+</Main>
+
+<style>
+	.profile{
+		display: flex;
+		align-items: start;
+		flex-wrap: wrap;
+		padding: 1rem 0 3rem 0;
+	}
+
+	.profile__details{
+		flex: 1 0 300px;
+	}
+
+	.profile__details > h1{
+		margin-top: 0;
+	}
+
+	.profile__picture{
+		border-radius: 50%;
+		margin:0 2rem 1rem 0;
+	}
+</style>
