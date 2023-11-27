@@ -5,8 +5,4 @@ subtitle: 'What I want to do with my life'
 poster: '/images/image4.jpg'
 ---
 
-- 5X Matathoner
-- Olympic gold medalits
-- Fashion model
-- Michelin star restaurant owner
-- Adviser to the vice president
+Not found till i write something here xd
