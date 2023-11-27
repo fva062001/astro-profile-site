@@ -1,7 +1,7 @@
 ---
 import Main from "../layouts/Main.astro"
 import Cards from "../components/Cards.astro";
-const profilePicture = "public/images/myself.jpg"
+const profilePicture = "/public/images/myself.jpg"
 
 
 const blogs = await Astro.glob<{
@@ -13,7 +13,7 @@ const blogs = await Astro.glob<{
 
 <Main title="Fernando Valerio">
 	<div class="profile">
-		<img class="profile__picture" src={profilePicture} alt="Fernando Valerio's Website" width="100px" height="100px" >
+		<img class="profile__picture" src={profilePicture.src} alt="Fernando Valerio's Website" width="100px" height="100px" >
 		<div class="profile__details">
 			<h1>Fernando Valerio</h1>
 			<h2>Front End Engineer at Nobee</h2>
