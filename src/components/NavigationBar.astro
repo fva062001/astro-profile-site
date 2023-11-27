@@ -8,10 +8,10 @@ import ThemeToggler from "./ThemeToggler.astro";
             <a href="/">Home</a>
         </li>
         <li>
-            <a href="#">Philosophies</a>
+            <a href="/philosophies">Philosophies</a>
         </li>
         <li>
-            <a href="#">Beyond technology</a>
+            <a href="/beyond-tech">Beyond technology</a>
         </li>
     </ul>
     <ThemeToggler />
@@ -46,4 +46,24 @@ import ThemeToggler from "./ThemeToggler.astro";
     a:hover{
         color: var(--grey-900);
     }
+
+    .active{
+        color: var(--grey-900);
+        font-weight: 600;
+        opacity: 1;
+    }
+
+
 </style>
+
+<script>
+    const {pathname} = window.location;
+
+    const activeNavigationElement = document.querySelector(`nav a[href="${pathname}"]`);
+
+    if(activeNavigationElement){
+        activeNavigationElement.classList.add('active');
+    }
+
+
+</script>

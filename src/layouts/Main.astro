@@ -2,6 +2,13 @@
 import "../styles/global.css"
 import Footer from "../components/Footer.astro"
 import NavigationBar from "../components/NavigationBar.astro"
+
+type Props = {
+	title: string
+}
+
+const {title} = Astro.props;
+
 ---
 
 
@@ -15,7 +22,31 @@ import NavigationBar from "../components/NavigationBar.astro"
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
         <meta name="description" content="Fernando Valerio Website">
-		<title>Astro</title>
+		<title>{title}</title>
+
+		<script is:inline>
+			const COLOUR_MODE = 'colour-mode';
+			const LIGHT_THEME = 'light';
+			const DARK_THEME = 'dark';
+
+			const setInitialColourMode = () => {
+				const persistentColor = window.localStorage.getItem('colour-mode')
+			
+			    if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+			        document.documentElement.classList.add(DARK_THEME)
+			    }
+			
+			
+				if(persistentColor === 'dark'){
+					document.documentElement.classList.add(DARK_THEME)
+				}
+				if(persistentColor === 'light'){
+					document.documentElement.classList.remove(DARK_THEME)
+				}
+			}
+			setInitialColourMode()
+		</script>
+
 	</head>
 	<body>
         <main>

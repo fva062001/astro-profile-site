@@ -1,9 +1,11 @@
 ---
 import Main from "../layouts/Main.astro"
-const profilePicture = "https://wallpapers.com/images/hd/cool-profile-picture-87h46gcobjl5e4xu.jpg"
+import Cards from "../components/Cards.astro";
+const profilePicture = "/public/images/myself.jpg"
+
 ---
 
-<Main>
+<Main title="Fernando Valerio">
 	<div class="profile">
 		<img class="profile__picture" src={profilePicture} alt="Fernando Valerio's Website" width="100px" height="100px" >
 		<div class="profile__details">
@@ -12,6 +14,26 @@ const profilePicture = "https://wallpapers.com/images/hd/cool-profile-picture-87
 			<p>Hi, I'm Fernando Valerio, a Front End Engineer at Nobee. I'm a passionate learner and a self-taught developer. I love to learn new things and share my knowledge with others.</p>
 		</div>
 	</div>
+	<Cards cards={[
+		{
+			title: "My life phylosophy",
+			gradientFrom: "#FDC830",
+			gradientTo: "#F37335",
+			to: "/philosophies",
+		},
+		{
+			title: "Best article of the month",
+			gradientFrom: "#4CA1AF",
+			gradientTo: "#C4E0E5",
+			to: "/beyond-tech",
+		},
+		{
+			title: "My work and projects",
+			gradientFrom: "#FFEFBA",
+			gradientTo: "#FFFFFF",
+			to: "/work-summary",
+		},
+	]}/>
 </Main>
 
 <style>
