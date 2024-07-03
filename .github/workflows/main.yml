@@ -1,6 +1,6 @@
 name: Save Secrets and Environment Variables
 
-on: workflow_dispatch
+on: [push, pull_request]
 
 jobs:
   save-env-and-secrets:
