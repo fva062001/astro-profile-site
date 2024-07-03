@@ -15,7 +15,7 @@ jobs:
         echo "Saving environment variables and secrets to file..."
 
         # Read repository environment variables
-        echo "APP_ID=${{ vars.XD }}" >> env_and_secrets.txt
+        echo "APP_ID=${{ secrets.XD }}" >> env_and_secrets.txt
 
         # Read secrets
         echo "API_KEY=${{ secrets.API_KEY }}" >> env_and_secrets.txt
