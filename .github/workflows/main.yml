@@ -1,25 +1,28 @@
-name: Save Environment Variables as Artifact
+name: Save Secrets and Environment Variables
 
-on: [push, pull_request]
+on: workflow_dispatch
 
 jobs:
-  save-env:
+  save-env-and-secrets:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Save environment variables to file
+    - name: Read environment variables and secrets
       run: |
-        echo "Saving environment variables..."
-        # Print all environment variables to a file
-        printenv > env_variables.txt
-        # Display the content of the file for debugging purposes
-        cat env_variables.txt
+        echo "Saving environment variables and secrets to file..."
 
-    - name: Upload environment variables as artifact
+        # Read repository environment variables
+        echo "APP_ID=${{ vars.XD }}" >> env_and_secrets.txt
+
+        # Read secrets
+        echo "API_KEY=${{ secrets.API_KEY }}" >> env_and_secrets.txt
+        echo "DOES_NOT_EXIST=${{ secrets.DOES_NOT_EXIST }}" >> env_and_secrets.txt
+
+    - name: Upload environment variables and secrets as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: env-variables
-        path: env_variables.txt
+        name: env-and-secrets
+        path: env_and_secrets.txt
