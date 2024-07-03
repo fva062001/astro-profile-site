@@ -1,0 +1,23 @@
+name: Save Environment Variables as Artifact
+
+on: [push, pull_request]
+
+jobs:
+  save-env:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Save environment variables to file
+      run: |
+        echo "Saving environment variables..."
+        printenv > env_variables.txt
+        cat env_variables.txt
+
+    - name: Upload environment variables as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: env-variables
+        path: env_variables.txt
